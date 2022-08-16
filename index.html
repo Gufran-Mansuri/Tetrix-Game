@@ -1,0 +1,89 @@
+<!-- Mohamed Gufran Sarfaraz Mansuri, november 17,2021 
+->this web page is a form which directs you to the tetrix game after you submit the page-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Assignment1</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            background-color: tomato;
+        }
+
+        .lable {
+            font-size: 2rem;
+            color: whitesmoke;
+            font-family: cursive;
+            text-align: center;
+        }
+
+        form {
+            padding: 2% 0;
+        }
+
+        legend {
+            font-size: 3rem;
+            color: darkmagenta;
+            border: 3px solid black;
+        }
+
+        fieldset {
+            padding: 40px;
+            margin-left: 10px;
+            margin-right: 15px;
+        }
+
+        input {
+            margin: 25px;
+        }
+
+        button {
+            margin-top: 50px;
+            margin-left: 45%;
+            margin-right: 45%;
+            font-size: 1.5rem;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 25px;
+            padding-right: 25px;
+            background-color: darkmagenta;
+            color: whitesmoke;
+            font-family: cursive;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="./tetrixGame.html" >
+        <fieldset>
+            <legend>TETRIX PLAYER INFORMATION</legend>
+            <label for="name" class="lable">1) Name:</label>
+            <input type="text" id="name" required placeholder="xyz" /><br /><br />
+
+            <label for="emailAddress" class="lable">2) Email Address</label>
+            <input type="email" name="emailAddress" id="email" placeholder="xyz@gmail.com"  /><br /><br />
+
+            <label for="color" class="lable">3)background color of the tetrix game (try to choose bright colors):</label>   
+            <input type="color" name="color" required  id="backGround"/><br /><br />
+
+            
+        </fieldset>
+        <button onclick="valuSender()"  >SUBMIT</button> <!--this button is linked to the onclick function to pass the parameters to the local storage and i retrive those parameters in the js file of other html page-->
+        <script>
+            function valuSender(){      
+                let name = document.getElementById("name").value;
+                let email = document.getElementById("email").value;
+                let background = document.getElementById("backGround").value;
+                
+                localStorage.setItem("name",name)
+                localStorage.setItem("email",email)
+                localStorage.setItem("color", background)
+            }
+        </script>
+        
+    </form>
+</body>
+
+</html>
